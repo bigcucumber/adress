@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title> Short Address Project </title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	</head>
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+	<style>
+		*{font-size:12px; margin:0; padding:0;}
+		.container{width:1100px;}
+		.search{ margin:200px 0 0 250px;}
+		form{font-size:30px; display:block; overflow:hidden;}
+		input{display:block; float:left;}
+		input:first-child{width:500px; font-size:30px; height:50px; line-height:50px; padding-left:20px;}
+		input:nth-child(2){ height:54px; width:52px; line-height:50px; margin-left:15px;}
+	</style>
+	<body>
+		<div class="container">
+			<div class="search">
+				<div class="input">
+					<input type="text" name="q" placeholder="http://"/>
+					<input type="submit" value="Go" />
+				</div>
+			</div>
+		</div>
+	<script>
+		$(function(){
+			var E_text = $("input[type='text']");
+			var E_submit=$("input[type='submit']");
+			E_submit.click(function(){
+				var data = E_text.val();
+				if( data == "")
+				{
+					E_text.css({"border-color":"red"});
+					return;
+				}
+				$.post('index.php',{q:data},function(result){
+					E_text.val(result);
+					E_submit.attr("disabled",true);
+				})
+			});
+			E_text.click(function(){
+				E_text.css({"border-color":"blue"});
+			})
+			E_text.keydown(function(){
+				if(E_text.val() == "")
+					E_submit.attr("disabled",false);
+			})
+		});
+	</script>
+	</body>
+</html>
