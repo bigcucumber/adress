@@ -1,8 +1,11 @@
 # adress
-    short address project
-    http://t.cn/IsqlQsv ==> 对应一个网址
+
+short address project
+http://t.cn/IsqlQsv
+对应一个网址
 
 后台使用mongodb存储数据
+<pre>
     > show dbs;show dbs;
     address  0.031GB
     local    0.031GB
@@ -19,8 +22,10 @@
     { "_id" : 12, "code" : "D", "src" : "http://www.baidu.com", "srcmd5" : "bfa89e563d9509fbc5c6503dd50faf2e" }
     > db.primadb.primaryid.find()db.primaryid.find()
     { "_id" : 1, "id" : 13 }
+</pre>
 
 nginx rewrite rules
+<pre>
     location ~* /address/(\w+)$ {
              #try_file $uri $uri/ @jump;
              if (!-f $request_filename) {
@@ -42,3 +47,4 @@ nginx rewrite rules
              fastcgi_index index.php;
              include fastcgi_params;
      }
+ </pre>
