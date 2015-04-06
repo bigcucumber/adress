@@ -4,7 +4,8 @@ short address project
 http://t.cn/IsqlQsv
 对应一个网址
 
-后台使用mongodb存储数据
+> 后台使用mongodb存储数据
+
 <pre>
     > show dbs;show dbs;
     address  0.031GB
@@ -24,7 +25,8 @@ http://t.cn/IsqlQsv
     { "_id" : 1, "id" : 13 }
 </pre>
 
-nginx rewrite rules
+> nginx rewrite rules
+
 <pre>
     location ~* /address/(\w+)$ {
              #try_file $uri $uri/ @jump;
